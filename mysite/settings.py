@@ -6,7 +6,7 @@ SECRET_KEY = '6u^#!ta24z7w7fmwqgi3prgf^p6l*ek6n#a@10_12w^e)(b=oh'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'dinner.apps.DinnerConfig',
@@ -17,13 +17,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'corsheaders',
-    'django_filters'
+    'corsheaders'
 ]
-
-REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,7 +61,7 @@ DATABASES = {
         'NAME': 'dinner',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'HOST': '192.168.62.51',
         'PORT': '3306'
     }
 }
