@@ -2,4 +2,4 @@ from django.contrib import admin
 
 from .models import *
 
-admin.site.register(Bon)
+# admin.site.register(Bon)
