@@ -22,7 +22,7 @@ class OrderList(generics.ListCreateAPIView):
     def filter_queryset(self, queryset):
         order_datetime = self.request.GET.get('order_datetime')
         aa = datetime.datetime.strptime(order_datetime, "%Y-%m-%d")
-        return queryset.filter(create_datetime__lt= aa).date()
+        return queryset.filter(create_datetime__gt= aa)
 
     def post(self, request, *args, **kwargs):
         request.data['order_complete'] = 1
