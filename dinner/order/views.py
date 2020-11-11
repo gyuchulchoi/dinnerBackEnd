@@ -24,6 +24,9 @@ class OrderList(generics.ListCreateAPIView):
         aa = datetime.datetime.strptime(order_datetime, "%Y-%m-%d")
         return queryset.filter(create_datetime__gt= aa)
 
+        # lt 이하
+        # gt 이상
+
     def post(self, request, *args, **kwargs):
         request.data['order_complete'] = 1
         return super().post(request, *args, **kwargs)

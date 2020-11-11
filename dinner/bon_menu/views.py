@@ -1,4 +1,4 @@
-from ..models import Bon_Menu
+from ..models import BonMenu
 from .serializers import BonSerializer
 from django.http import JsonResponse, HttpResponse
 import urllib.request, json
@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 import re
 
 class BonList(viewsets.ModelViewSet):
-    queryset = Bon_Menu.objects.all()
+    queryset = BonMenu.objects.all()
     serializer_class = BonSerializer
     req = requests.get('https://www.bonif.co.kr/menu/list?brdCd=BF104')
     html = req.content.decode('utf-8').strip()
@@ -110,7 +110,7 @@ class BonList(viewsets.ModelViewSet):
         serializer.is_valid()
         serializer.save()
 class BonData():
-    queryset = Bon_Menu.objects.all()
+    queryset = BonMenu.objects.all()
     serializer_class = BonSerializer
     
     
@@ -121,5 +121,5 @@ class BonData():
         #serializer.data['menu_best'] = menu_best[index]
         #serializer.data['menu_type'] = menu_type[index]
 class BonDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Bon_Menu.objects.all()
+    queryset = BonMenu.objects.all()
     serializer_class = BonSerializer
