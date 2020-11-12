@@ -12,4 +12,5 @@ class OrderSerializer(serializers.ModelSerializer):
         return super().create(validated_data)
 
     def update(self, instance, validated_data):
+        validated_data['update_datetime'] = datetime.datetime.now()
         return super().update(instance, validated_data)
