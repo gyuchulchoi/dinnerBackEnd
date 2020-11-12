@@ -142,11 +142,21 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
+class KimMenu(models.Model):
+    price = models.IntegerField()
+    name = models.CharField(max_length=50)
+    type = models.CharField(max_length=15)
+
+    class Meta:
+        managed = False
+        db_table = 'kim_menu'
+
+
 class Order(models.Model):
     orderer = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
     price = models.IntegerField()
-    desc = models.CharField(max_length=50)
+    desc = models.CharField(max_length=50, blank=True, null=True)
     menu_type = models.CharField(max_length=30)
     order_complete = models.IntegerField(blank=True, null=True)
     create_datetime = models.DateTimeField(blank=True, null=True)
