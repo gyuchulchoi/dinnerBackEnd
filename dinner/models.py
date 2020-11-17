@@ -86,12 +86,12 @@ class Bon(models.Model):
 
 
 class BonMenu(models.Model):
-    id = models.IntegerField(primary_key=True)
     menu_price = models.IntegerField(blank=True, null=True)
     menu_name = models.CharField(max_length=200, blank=True, null=True)
     menu_new = models.IntegerField(blank=True, null=True)
     menu_best = models.IntegerField(blank=True, null=True)
     menu_type = models.CharField(max_length=200, blank=True, null=True)
+    menu_img = models.CharField(max_length=500, blank=True, null=True)
 
     class Meta:
         managed = False
